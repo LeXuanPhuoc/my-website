@@ -185,7 +185,7 @@ const products = [
   },
   {
     id: "07",
-    productName: "Sakarias Armchair",
+    productName: "Ghế bành Sakarias",
     imgUrl: productImg07,
     category: "chair",
     price: 99,
@@ -231,7 +231,7 @@ const products = [
 
   {
     id: "08",
-    productName: "Baltsar Chair",
+    productName: "Ghế Baltsar",
     imgUrl: productImg08,
     category: "chair",
     price: 89,
@@ -254,7 +254,7 @@ const products = [
 
   {
     id: "09",
-    productName: "Helmar Chair",
+    productName: "Ghế Helmar",
     imgUrl: productImg09,
     category: "chair",
     price: 112,
@@ -299,7 +299,7 @@ const products = [
   },
   {
     id: "25",
-    productName: "Sakarias Armchair",
+    productName: "Ghế bành Sakarias ",
     imgUrl: productImg10,
     category: "chair",
     price: 99,

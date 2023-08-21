@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {NavLink} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import'./Header.css'
 
 import {motion} from 'framer-motion'
@@ -33,8 +33,8 @@ const Header = () => {
           <div className="logo">
             <img src={logo} alt='logo'/>
             <div>
-              <h1>XPmart</h1>
-              {/* <p>Since 2023</p> */}
+              <h1><Link to='/home'>XPmart</Link></h1>
+             
             </div>
           </div>
 

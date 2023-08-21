@@ -46,12 +46,12 @@ const Home = () => {
         <Row>
           <Col lg='6' md='6'>
             <div className='hero__content'>
-              <p className='hero__subtitle'>Trending product in {years}</p>
-              <h2>Make Your Interior More Minimalistic & Modern</h2>
-              <p>We are committed to providing you with a great experience and comfortable living space.
-                 Let us take care of every detail for you!</p>
+              <p className='hero__subtitle'>Sản phẩm thịnh hành năm {years}</p>
+              <h2>Làm cho nội thất của bạn trở nên tối giản và hiện đại hơn</h2>
+              <p>Chúng tôi cam kết mang đến cho bạn những trải nghiệm tuyệt vời và không gian sống tiện nghi.
+                 Hãy để chúng tôi chăm sóc từng chi tiết cho bạn!</p>
               
-              <motion.button whileTap={{scale:1.2}} className='buy__btn'><Link to='/shop'>SHOP NOW</Link></motion.button>
+              <motion.button whileTap={{scale:1.2}} className='buy__btn'><Link to='/shop'>MUA NGAY</Link></motion.button>
 
             </div>
           </Col>
@@ -72,7 +72,7 @@ const Home = () => {
         <Row>
           <Col lg='12' className='text-center'>
             <h2 className='section__title'>
-              Trending Products
+            Sản phẩm thịnh hành
             </h2>
 
           </Col>
@@ -86,7 +86,7 @@ const Home = () => {
       <Row>
           <Col lg='12' className='text-center'>
             <h2 className='section__title'>
-              Best Sales
+              Sản phẩm bán chạy nhất
             </h2>
 
           </Col>
