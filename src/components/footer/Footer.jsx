@@ -2,7 +2,6 @@ import React from 'react'
 import "./footer.css"
 import { Container,Row,Col,ListGroup,ListGroupItem } from 'reactstrap'
 import { Link } from 'react-router-dom'
-import logo from '././../../assets/images/eco-logo.png'
 const Footer = () => {
   const year = new Date().getFullYear()
   return <footer className='footer'>
@@ -10,9 +9,8 @@ const Footer = () => {
       <Row>
         <Col lg='4'>
           <div className="logo">
-            <img src={logo} alt='logo'/>
             <div>
-              <h1><Link to='/home'>XPmart</Link></h1>
+              <h1 className='text-white'><Link to='/home'>XPmart</Link></h1>
               </div>
             </div>
             <p className='footer__text mt-4'>Hãy khám phá thế giới mua sắm tại XPmart và đặt niềm tin vào chúng tôi.
@@ -72,18 +70,18 @@ const Footer = () => {
         <Col lg='3'>
           <div className='footer__quick-link'>
             <h4 className='footer__links-title'>Liên hệ</h4>
-            <ListGroup>
-              <ListGroupItem className='ps-0 border-0'>
+            <ListGroup className='footer__contact'>
+              <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
                 <span><i class="ri-map-pin-line"></i></span>
                 <p>1abc Quang Trung,Hải Châu,Đà Nẵng</p>
               </ListGroupItem>
            
-              <ListGroupItem className='ps-0 border-0'>
+              <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
               <span><i class="ri-phone-line"></i></span>
                 <p>+19001009</p>
               </ListGroupItem>
             
-              <ListGroupItem className='ps-0 border-0'>
+              <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
               <span><i class="ri-mail-line"></i></span>
                 <p>xuanphuocmtp@gmail.com</p>
               </ListGroupItem>
