@@ -23,6 +23,9 @@ const Home = () => {
 
   const [trendingProducts,setTrendingProduct] = useState([])
   const [bestSalesProducts,setBestSalesProduct] = useState([])
+  const [mobileProducts, setMobileProduct] = useState([])
+  const [wirelessProducts, setWirelessProduct] = useState([])
+  const [popularProducts , setPopularProduct] = useState([])
 
   const years = new Date().getFullYear();
 
@@ -36,8 +39,23 @@ const Home = () => {
       item=> item.category === 'sofa'
     ); 
 
+    const filterMobileProducts = products.filter(
+      item=> item.category === 'mobile'
+
+    );
+
+     const filterWirelessProducts = products.filter(
+      item=> item.category === 'wireless'
+    ); 
+    const filterPopularProducts = products.filter(
+      item=> item.category === 'watch'
+    ); 
+
     setTrendingProduct(filterTrendingProducts)
     setBestSalesProduct(filterBestSalesProducts)
+    setMobileProduct(filterMobileProducts)
+    setWirelessProduct(filterWirelessProducts)
+    setPopularProduct(filterPopularProducts)
   }, []);
 
   return <Helmet title={' Home'}>
@@ -119,6 +137,37 @@ const Home = () => {
 
     </section>
   
+{/* thiết bị điện tử */}
+  <section className='new__arrivals'>
+    <Container>
+      <Row>
+        <Col lg="12" className='text-center mb-5'>
+          <h2 className='section__title'>Sản Phẩm Khác</h2>
+
+        </Col>
+        <ProductList data={mobileProducts}/>
+        <ProductList data={wirelessProducts}/>
+        
+      </Row>
+    </Container>
+  </section>
+
+  <section className='popular__category'>
+  <Container>
+      <Row>
+        <Col lg="12" className='text-center mb-5'>
+          <h2 className='section__title'>Danh mục Phổ Biến</h2>
+
+        </Col>
+        <ProductList data={popularProducts}/>
+       
+        
+      </Row>
+    </Container>
+
+    </section>
+
+
   </Helmet>
 }
 export default Home
