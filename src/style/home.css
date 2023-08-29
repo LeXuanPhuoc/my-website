@@ -52,3 +52,27 @@
     color: var(--primary-color);
 
 }
+@media only screen and (max-width: 992px) {
+    .hero__content{
+       font-size: 2rem;
+    }
+
+
+}@media only screen and (max-width: 769px) {
+    .hero__content{
+       font-size: 1.6em;
+      
+    }
+    
+    .hero__content p{
+    font-style: 0.9rem;
+    }
+   .buy__btn{
+    font-size: 0.9rem;} 
+}
+@media only screen and (max-width: 576px) {
+.hero__content{
+    padding: 0;
+    margin-bottom: 40px;
+}
+}

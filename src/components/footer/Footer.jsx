@@ -44,7 +44,7 @@ const Footer = () => {
         </Col>
         <Col lg='2'>
           <div className='footer__quick-link'>
-            <h4 className='footer__links-title  '>Liên kết</h4>
+            <h4 className='footer__links-title  '>Liên kết hàng đầu</h4>
             <ListGroup>
               <ListGroupItem className='ps-0 border-0'>
                 <Link to='/shop'>Cửa hàng</Link>
