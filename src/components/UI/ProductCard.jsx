@@ -2,14 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 import "../../style/product-card.css";
 import { Col } from "reactstrap";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import {  toast } from 'react-toastify';
+
 
 //cart 
 import {  useDispatch } from "react-redux";
-import { cartActions } from "../../redux/slices/cartSlices";
+import { cartActions } from "../../redux/slices/cartSlice";
 const ProductCard = ({item}) => {
 
-const useDispatch = useDispatch()
+const dispatch = useDispatch()
 
 const addToCart = () => {
   dispatch(
@@ -20,7 +22,7 @@ const addToCart = () => {
      image: item.imgUrl,
   })
   );
-  alert("Sản phẩm đã được thêm vào giỏ hàng")
+  toast.success('sản phẩm được thêm thành công');
 };
 
   return (

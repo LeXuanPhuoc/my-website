@@ -4,7 +4,6 @@ import{motion} from'framer-motion'
 
 import './services.css'
 
-import ServicesData from '../assets/data/serviceData'
 import serviceData from '../assets/data/serviceData'
 const Services = () => {
   return<section className='services'>
