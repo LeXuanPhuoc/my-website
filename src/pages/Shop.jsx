@@ -61,7 +61,7 @@ const Shop = () => {
     }
   };
 
-  const handSearch = e => {
+  const handlSearch = e => {
     const searchTerm = e.target.value
     const searchedProducts = products.filter(item =>item.productName.
       toLowerCase().includes(searchTerm.toLowerCase()))
@@ -105,7 +105,7 @@ const Shop = () => {
             <Col lg='6' md='6' >
               <div className='search__box'>
                 <input type='text' placeholder='Search............'
-                onChange={handSearch}/>
+                onChange={handlSearch}/>
                 <span>
                 <i class="ri-search-line"></i>
                 </span>
@@ -120,7 +120,7 @@ const Shop = () => {
         <Container>
           <Row>
             {
-            productsData.length === 0 ?(<h1>Không tìm thấy sản phẩm nào!</h1>)
+            productsData.length === 0 ?(<h1 className='text-center fs-4'>Không tìm thấy sản phẩm nào!</h1>)
           :(
             <ProductList data={productsData}/>
           )}
