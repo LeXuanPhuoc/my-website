@@ -1,6 +1,6 @@
 import React,{useRef,useEffect} from 'react'
 
-import {Link, NavLink} from 'react-router-dom'
+import {Link, NavLink,useNavigate} from 'react-router-dom'
 import'./Header.css'
 
 import {motion} from 'framer-motion'
@@ -9,7 +9,13 @@ import logo from '././../../assets/images/eco-logo.png'
 import user_icon from '../../assets/images/user-icon.png'
 
 import {Container , Row} from 'reactstrap'
-import {  useSelector } from 'react-redux/es/hooks/useSelector'
+import {  useSelector } from 'react-redux'
+import useAuth from '../../custom.hooks/useAuth';
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebase.config'
+import { toast } from 'react-toastify'
+
+
 
 const nav__Links =[
 {
@@ -30,9 +36,12 @@ const Header = () => {
 
   const headerRef = useRef(null)
   const totalQuantity = useSelector(state =>state.cart.totalQuantity)
+ const profileActionRef = useRef(null)
 
 
   const menuRef = useRef(null)
+  const navigate = useNavigate()
+  const {currentUser} = useAuth()
   
   const stickyHeaderFunc = ()=> {
     window.addEventListener('scroll', ()=> {
@@ -45,14 +54,35 @@ const Header = () => {
         headerRef.current.classList.remove('sticky__header')
       }
     })
-  }
+  };
+  //Đăng xuất
+  const logout = ()=> {
+  signOut(auth).then(()=> {
+    toast.success('đã Đăng xuất')
+    navigate('/home')
+
+  }).catch(err=> {
+    toast.error(err.message)
+  })
+  };
 useEffect(() => {
   stickyHeaderFunc();
   return () => window.removeEventListener("scroll", stickyHeaderFunc);
 });
 const menuToggle = ()=> menuRef.current.classList.toggle('active__menu');
 
-  return <header className="header" ref={headerRef}>
+const navigateTocart =()=> {
+  navigate("/cart");
+
+
+  
+
+};
+const toggleProfileActions = () => 
+  profileActionRef.current.classList.toggle('show__profileActions');
+
+
+  return( <header className="header" ref={headerRef}>
     <Container>
       <Row>
         <div className="nav__wrapper">
@@ -85,14 +115,31 @@ const menuToggle = ()=> menuRef.current.classList.toggle('active__menu');
               <span className="badge">1</span>
               </span>
               
-            <span className="cart__icon">
+            <span className="cart__icon" onClick={navigateTocart}>
               <i class="ri-shopping-bag-line"></i>
               <span className="badge">{totalQuantity}</span>
               </span>
               
 
-              <span><motion.img whileTap={{scale: 1.3}} src={user_icon} 
-              alt='user_icons'/></span>
+              <div className='profile'>
+                <motion.img whileTap={{scale: 1.3}} src= {currentUser? currentUser.photoURL: user_icon} 
+              alt='user_icons'
+              onClick={toggleProfileActions}
+              />
+              
+
+              <div className='profile__actions' ref={profileActionRef}
+              onClick={toggleProfileActions}>
+              {currentUser ? <span onClick={logout}>Đăng xuất</span>
+              :
+              <div className='d-flex align-items-center justify-content-center flex-column'>
+                <Link to='/signup'>Đăng ký</Link>
+                <Link to='/login'>Đăng nhập</Link>
+                <Link to='/dashboard'>Bản điều khiển</Link>
+                </div>}
+              </div>
+              </div>
+              
 
             <div className='moblile__menu'>
             <span onClick={menuToggle}>
@@ -107,6 +154,7 @@ const menuToggle = ()=> menuRef.current.classList.toggle('active__menu');
       </Row>
     </Container>
   </header>
+  )
 }
 
 export default Header;

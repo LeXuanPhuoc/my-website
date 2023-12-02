@@ -1,0 +1,18 @@
+.auth_from{
+    background: var(--primary-color);
+    padding: 40px;
+    border-radius: 5px;
+}
+.auth__btn{
+    background:#fff !important;
+    color: var(--primary-color);
+    font-weight: 600;
+    
+}
+.auth_from p a{
+    color:#ffffffaa;
+}
+.auth_from input[type ='file']{
+  color: #fff;  
+  cursor: pointer;
+}

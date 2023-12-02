@@ -17,9 +17,13 @@ import ProductList from '../components/UI/ProductList'
 
 import counterImg from '../assets/images/counter-timer-img.png'
 import Clock from '../components/UI/Clock'
+import useGetData from '../custom.hooks/useGetData'
 
 
 const Home = () => {
+
+  const {data: products,loading} = useGetData('product')
+
 
   const [trendingProducts,setTrendingProduct] = useState([])
   const [bestSalesProducts,setBestSalesProduct] = useState([])
@@ -56,7 +60,7 @@ const Home = () => {
     setMobileProduct(filterMobileProducts)
     setWirelessProduct(filterWirelessProducts)
     setPopularProduct(filterPopularProducts)
-  }, []);
+  }, [products]);
 
   return <Helmet title={' Home'}>
     <section className='hero__section'>
@@ -94,7 +98,22 @@ const Home = () => {
             </h2>
 
           </Col>
-          <ProductList data={trendingProducts}/>
+          {loading?
+          <div class="spinner">
+
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+            <span></span>
+  
+  
+</div>:<ProductList data={trendingProducts}/>
+          }
+          
         </Row>
       </Container>
     </section>
@@ -108,7 +127,22 @@ const Home = () => {
             </h2>
 
           </Col>
-          <ProductList data={bestSalesProducts}/>
+          {loading?
+          <div class="spinner">
+
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+            <span></span>
+  
+  
+</div>:<ProductList data={bestSalesProducts}/>
+          }
+          
           
         </Row>
       </Container>
@@ -145,8 +179,39 @@ const Home = () => {
           <h2 className='section__title'>Sản Phẩm Khác</h2>
 
         </Col>
-        <ProductList data={mobileProducts}/>
-        <ProductList data={wirelessProducts}/>
+        {loading?
+          <div class="spinner">
+
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+            <span></span>
+  
+  
+</div>: <ProductList data={mobileProducts}/>
+          }
+
+{loading?
+          <div class="spinner">
+
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+            <span></span>
+  
+  
+</div>: <ProductList data={wirelessProducts}/>
+          }
+       
+       
         
       </Row>
     </Container>
@@ -159,7 +224,22 @@ const Home = () => {
           <h2 className='section__title'>Danh mục Phổ Biến</h2>
 
         </Col>
-        <ProductList data={popularProducts}/>
+        {loading?
+          <div class="spinner">
+
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+            <span></span>
+  
+  
+</div>:<ProductList data={popularProducts}/>
+          }
+        
        
         
       </Row>
